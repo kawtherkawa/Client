@@ -1,0 +1,53 @@
+.Csection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap ;
+    justify-content: center;
+}
+.Cform{
+    width: 60%;
+    margin:0px 25px;
+}
+                         
+.contact-img{ 
+   display: flex;
+   justify-content: center;
+    padding: 20px 70px;
+}
+.Ccbody {
+    padding-top: 35px;
+    position: relative;
+    z-index: 999;
+}
+.Ccbody h5{
+
+      color: #7e7e7e;
+    font-family: "Open Sans",sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 14px;
+
+}
+
+
+.Ccbody p{
+    color: #7e7e7e;
+    font-size: 15px;
+    margin-bottom: 5px;
+    font-family: "Open Sans",sans-serif;
+}
+
+.Csection{
+   padding: 90px 0px;
+}
+.Cbtn{
+    background-color: black!important;
+    
+    border:none !important;
+    
+}
+.Cbtn:hover{
+   background-color:  #BF9E58 !important;
+   transition: all .3s ease;
+
+}

@@ -1,0 +1,11 @@
+.Scontainer{
+height: 100vh;
+width: 100%;
+background-color: brown;
+}
+
+.Scontainer{
+    background-image:url ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQvPDxC_M0HTvjVKklO3w3dNhEesB3wI5H-oRt182zM9bJKmAIJA6J6-KOIULsjy40RN8&usqp=CAU') ;
+    height: 50vh;
+    width: 100%;
+    }
