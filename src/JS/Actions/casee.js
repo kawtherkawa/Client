@@ -5,36 +5,41 @@ import { ADD_CASES, FAIL_CASES, GET_CASEE, GET_CASES, LOAD_CASES } from "../Acti
 export const getCases = () => async (dispatch) => {
   dispatch({ type: LOAD_CASES });
   try {
-    let result = await axios.get("http://localhost:7801/api/cases/allCases");
+    let result = await axios.get("/api/cases/allCases");
     dispatch({ type: GET_CASES, payload: result.data.listCases });
   } catch (error) {
     dispatch({ type: FAIL_CASES, payload: error.response });
   }
 };
 
-export const addCases = (newCases) => async (dispatch) => {
+export const addCases = ({newCases,handleClose}) => async (dispatch) => {
   dispatch({ type: LOAD_CASES });
   try {
     let result =  await axios.post("/api/cases/addCases", newCases);
     dispatch (  { type : ADD_CASES, payload : result.data})
+    dispatch(getCases())
+    handleClose()
   } catch (error) {
     dispatch({ type: FAIL_CASES, payload: error.response });
   }
 };
-export const deleteCases=(id)=>async(dispatch)=>{
+export const deleteCases=(id,handleClose)=>async(dispatch)=>{
   dispatch({ type: LOAD_CASES });
   try{
    await axios.delete(`/api/cases/${id}`)
    dispatch(getCases())
+
+   handleClose()
   }catch(error){
     dispatch({ type: FAIL_CASES, payload: error.response }); 
   }
 }
- export const editCases=(id,newCases)=>async(dispatch)=>{
+ export const editCases=(_id,newCases,navigate)=>async(dispatch)=>{
   dispatch({ type: LOAD_CASES });
   try{
-    await axios.put(`/api/cases/${id}`,newCases)
+    await axios.put(`http://localhost:7801/api/cases/${_id}`,newCases)
     dispatch(getCases())
+    navigate('/cases')
   }catch(error){
     dispatch({ type: FAIL_CASES, payload: error.response }); 
   }

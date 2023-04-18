@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import CasesTable from "../../Components/Cases/CasesTable";
 import "./CasesPage.css";
-import TopBar from '../../Components/topbar/TopBar'
+import TopBar from "../../Components/topbar/TopBar";
 import CaseModal from "../../Components/Cases/CaseModal";
 
 const CasesPage = () => {
@@ -16,31 +16,24 @@ const CasesPage = () => {
             <Button variant="outline-success">Search</Button> 
           </Form>*/
 
-       
-    
-    const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
-    const handleClose = () => setShow(false);
-
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   return (
-
-    
     <section>
-    <CaseModal show={show} handleClose={handleClose}/>
-             <TopBar/>
-
-           
-
-      <div className="CasesForm" >
-  
-<Button onClick={handleShow} > اضافة قضية</Button>
-   <div className="Casesdiv"> 
-   <CasesTable />
-   </div>
-  
-</div>
+      <CaseModal show={show} handleClose={handleClose} />
+      <TopBar />
+      <Container className="mt-5">
+        
+          <Button  className="m-5" onClick={handleShow}> اضافة قضية</Button>
+ 
+            <CasesTable />
+      
+        
+      </Container>
     </section>
-  )}
+  );
+};
 
-export default CasesPage
+export default CasesPage;

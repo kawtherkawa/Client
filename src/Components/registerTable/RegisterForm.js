@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../JS/Actions/user";
 import { Container } from "react-bootstrap";
-
+import './RegisterForm.css';
 const RegisterForm = () => {
   const [newUser, setNewUser] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuth = useSelector((state) => state.userReducer.isAuth);
   const handleChange = (e) => {
-    setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    setNewUser({ ...newUser, [e.target.name]: e.target.value,isAdmin:false });
   };
 
   const handleUser = (e) => {
@@ -22,13 +22,19 @@ const RegisterForm = () => {
     <Container>
       
                     <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                      Sign up
+                  تسجيل المستخدمين
                     </p>
 
                     <form className="mx-1 mx-md-4">
                       <div className="d-flex flex-row align-items-center mb-4">
-                        <i className="fas fa-user fa-lg me-3 fa-fw" />
-                        <div className="form-outline flex-fill mb-0">
+                        <i className="fas fa-user fa-lg  fa-fw" />
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                           الاسم
+                          </label>
                           <input
                             type="text"
                             id="form3Example1c"
@@ -36,19 +42,17 @@ const RegisterForm = () => {
                             name="name"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example1c"
-                          >
-                            {" "}
-                            Name
-                          </label>
+                       
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+                        <label className="form-label" htmFor="form3Example3c">
+                            {" "}
+                           البريد الالكتروني
+                          </label>
                           <input
                             type="email"
                             id="form3Example3c"
@@ -56,16 +60,19 @@ const RegisterForm = () => {
                             name="email"
                             onChange={handleChange}
                           />
-                          <label className="form-label" htmFor="form3Example3c">
-                            {" "}
-                            Email
-                          </label>
+                         
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example4c"
+                          >
+                           كلمة العبور
+                          </label>
                           <input
                             type="password"
                             id="form3Example4c"
@@ -73,95 +80,100 @@ const RegisterForm = () => {
                             name="password"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example4c"
-                          >
-                            Password
-                          </label>
+                       
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example4cd"
+                          >
+                            تاريخ الولادة
+                          </label>
                           <input
                             type="text"
                             id="form3Example4cd"
                             className="form-control"
-                            name="date_birth "
+                            name="date_birth"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example4cd"
-                          >
-                            date of birth
-                          </label>
+                       
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw" />
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                          العنوان
+                          </label>
                           <input
                             type="text"
                             id="form3Example1c"
                             className="form-control"
-                            name="adress "
+                            name="adress"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example1c"
-                          >
-                            {" "}
-                            Adress
-                          </label>
+                       
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw" />
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                          الشهادة العلمية
+                          </label>
                           <input
                             type="text"
                             id="form3Example1c"
                             className="form-control"
-                            name="diplom "
+                            name="diplom"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example1c"
-                          >
-                            {" "}
-                            Diplom
-                          </label>
+                       
                         </div>
                       </div>
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw" />
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                          تاريخ الدخول
+                          </label>
                           <input
                             type="text"
                             id="form3Example1c"
                             className="form-control"
-                            name="date_of_entry "
+                            name="date_of_entry"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example1c"
-                          >
-                            {" "}
-                            Date of Entry
-                          </label>
+                        
                         </div>
                       </div>
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw" />
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                           تاريخ الخروج
+                          </label>
                           <input
                             type="text"
                             id="form3Example1c"
@@ -169,52 +181,48 @@ const RegisterForm = () => {
                             name=" releaseDate"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example1c"
-                          >
-                            {" "}
-                            Date of release
-                          </label>
+                      
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw" />
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                            
+                            position
+                          </label>
                           <input
                             type="text"
                             id="form3Example1c"
                             className="form-control"
-                            name=" position"
+                            name="position"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example1c"
-                          >
-                            {" "}
-                            position
-                          </label>
+                        
                         </div>
                       </div>
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw" />
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0 regiterdiv">
+
+                        <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                           الهاتف
+                          </label>
                           <input
                             type="Number"
                             id="form3Example1c"
                             className="form-control"
-                            name=" phone"
+                            name="phone"
                             onChange={handleChange}
                           />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example1c"
-                          >
-                            {" "}
-                            Phone
-                          </label>
+                          
                         </div>
                       </div>
 

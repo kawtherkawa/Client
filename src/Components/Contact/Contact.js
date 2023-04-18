@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './contact.css'
 import holder from '../../img/contact.png'
+import axios from "axios";
 import {
   MDBInput,
  
@@ -9,11 +10,23 @@ import {
 import { Button, Card } from 'react-bootstrap';
 
 export default function Contact() {
+  const [email,setEmail]=useState("");
+
+  const sendEmail=async(e)=>{
+    e.preventDefault()
+    console.log(email)
+ 
+  const data={
+        email
+          }
+  const response=await axios.post("http/localhost:7801/api/sendemail",data)
+  console.log(response.data)
+  };
   return (
     <section  id="contact" className='Csection'>
-        <form className='Cform'>
+        <form className='Cform' onSubmit={sendEmail}>
       <MDBInput id='form4Example1' wrapperClass='mb-4'   placeholder='name'/>
-      <MDBInput type='email' id='form4Example2' wrapperClass='mb-4'  placeholder='Email adress' />
+      <MDBInput type='email' id='form4Example2' wrapperClass='mb-4' value={email}     placeholder='Email adress' onChange={(e)=>setEmail(e.target.value)} />
       <MDBInput type='number' id='form4Example2' wrapperClass='mb-4'  placeholder='Phone' />
 
       <MDBInput wrapperClass='mb-4' textarea id='form4Example3' rows={4}  placeholder='Message' />

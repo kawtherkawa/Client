@@ -22,11 +22,11 @@ const RegisterTable = () => {
 <Table responsive="sm"  size='sm' id="dtBasicExample" className="table table-striped table-bordered" cellspacing="0" width="100%"    >
   <thead class="bg-light">
   <tr>
-      <th>Name</th>
-      <th>Email</th>
-     <th>Phone</th> 
-      <th>Position</th>
-      <th>Actions</th>
+      <th>تحيين</th>
+      <th>الوظيفة</th>
+     <th>الهاتف</th> 
+      <th>البريد الالكتروني</th>
+      <th>اسم المستخدم</th>
       
     </tr>
       </thead>

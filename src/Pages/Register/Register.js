@@ -4,8 +4,6 @@ import RegisterTable from "../../Components/registerTable/RegisterTable"
 import Container from 'react-bootstrap/Container';
 import RegisterForm from '../../Components/registerTable/RegisterForm';
 const Register = () => {
-  
-
 
 
   return (
@@ -13,7 +11,7 @@ const Register = () => {
       
         <section className='vh-100' style={{backgroundColor: "#eee;"}}>
          <TopBar/>
-       <Container  fluid className='d-flex justify-content-between' > <RegisterForm/>
+       <Container  fluid className='d-flex justify-content-between mt-5' > <RegisterForm/>
 <RegisterTable/></Container>  
 
 </section>

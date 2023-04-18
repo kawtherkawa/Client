@@ -16,7 +16,7 @@ const TopBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav " className="d-flex  ">
 
-              <Button variant="outline-success" onClick={()=>dispatch(logout)}>  الخروج </Button>
+              <Button variant="outline-success" onClick={()=>dispatch(logout(navigate))}>  الخروج </Button>
               
         
             <Nav className="me-auto">

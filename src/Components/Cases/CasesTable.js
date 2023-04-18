@@ -1,51 +1,48 @@
-import React ,{useEffect} from 'react'
-import Table from 'react-bootstrap/Table';
-import { useSelector,useDispatch, } from 'react-redux';
-import CaseRow from './CaseRow';
-import {getCases} from '../../JS/Actions/casee'
+import React, { useEffect } from "react";
+import Table from "react-bootstrap/Table";
+import { useSelector, useDispatch } from "react-redux";
+import CaseRow from "./CaseRow";
+import { getCases } from "../../JS/Actions/casee";
 const CasesTable = () => {
+  const dispatch = useDispatch();
+  const Cases = useSelector((state) => state.caseReducer.listCases);
+  const Load = useSelector((state) => state.caseReducer.load);
+  console.log(Cases);
 
-const dispatch=useDispatch();
-const Cases=useSelector(state=>state.caseReducer.listCases);
-const Load=useSelector(state=>state.caseReducer.load)
-console.log (Cases)
-
-useEffect(()=>{
-dispatch(getCases());
-},[dispatch]);
-
+  useEffect(() => {
+    dispatch(getCases());
+  }, [dispatch]);
 
   return (
-
-   
     <div>
-
-<Table   id="dtBasicExample" className="table table-striped table-bordered" cellspacing="0" width="100%"    >
-      <thead>
-        <tr>
-        <th className="th-sm">الخصم</th>
-    
-          <th className="th-sm">الخصم</th>
-          <th  className="th-sm">الحكم</th>
-          <th className="th-sm">تاريخ النشر</th>
-          <th className="th-sm">المحكمة</th>
-          <th className="th-sm">المنوب </th>
-          <th className="th-sm">تاريخ القضية </th>
-          <th className="th-sm">حالتها</th>
-          <th className="th-sm">موضوع</th>
-          <th className="th-sm">عدد القضية </th>
-        </tr>
-      </thead>
-      <tbody>
-    {Cases?.map((casee , index) => <CaseRow key={index} casee={casee} />)}
-      </tbody>
-    </Table>
-
+      <Table
+        id="dtBasicExample"
+        className="table table-striped table-bordered"
+        cellspacing="0"
+        width="100%"
+      >
+        <thead>
+          <tr>   
+            <th className="th-sm">تعديل</th>
+            <th className="th-sm">الحكم</th>
+            <th className="th-sm">تاريخ النشر</th>
+            <th className="th-sm">المنوب </th>
+            <th className="th-sm">تاريخ القضية </th>
+            <th className="th-sm">حالتها</th>
+            <th className="th-sm">عدد القضية </th>
+          </tr>
+        </thead>
+        <tbody>
+          {Cases?.map((casee, index) => (
+            <CaseRow key={index} casee={casee} />
+          ))}
+        </tbody>
+      </Table>
     </div>
-  )
-}
+  );
+};
 
-export default CasesTable
+export default CasesTable;
 /*const Cases = [
     {caseName : "GREGERG",
     caseNum : "regregre",
@@ -122,7 +119,7 @@ caseDate : "21/5/2012",
 
 ]*/
 
- /*casesKhassim
+/*casesKhassim
     casesDecision
 casesDatePublication
 casesTribunal
