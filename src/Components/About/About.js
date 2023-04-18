@@ -3,7 +3,6 @@ import photoabout from "../../img/aboutus.jpg";
 import Pstatues from "../../img/statue.jpg";
 import signature from "../../img/sighnature.jpg";
 import  './about.css'
-
 const About = () => {
   return (
     <section id="aboutus" className="d-flex flex-row p-5">
